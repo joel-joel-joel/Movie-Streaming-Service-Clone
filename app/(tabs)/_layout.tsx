@@ -1,35 +1,20 @@
-import { Tabs } from 'expo-router';
 import React from 'react';
+import {Text, View} from 'react-native';
+import {Tabs} from "expo-router";
 
-import { HapticTab } from '@/components/haptic-tab';
-import { IconSymbol } from '@/components/ui/icon-symbol';
-import { Colors } from '@/constants/theme';
-import { useColorScheme } from '@/hooks/use-color-scheme';
+const _Layout = () => {
+    return (
+        <Tabs>
+            // Customize the header for each tab
+            <Tabs.Screen name="index" options={{headerShown: false}}/>
 
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
+            <Tabs.Screen name="profile" options={{headerShown: false}}/>
 
-  return (
-    <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-        tabBarButton: HapticTab,
-      }}>
-      <Tabs.Screen
-        name="index"
-        options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
-        }}
-      />
-      <Tabs.Screen
-        name="explore"
-        options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
-        }}
-      />
-    </Tabs>
-  );
+            <Tabs.Screen name="saved" options={{headerShown: false}}/>
+
+            <Tabs.Screen name="search" options={{headerShown: false}}/>
+        </Tabs>
+    )
 }
+
+export default _Layout
